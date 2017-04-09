@@ -24,6 +24,9 @@ for numberOfElements in "${elements[@]}"
 do
     for algorithm in "${algorithms[@]}"
     do
-        runScript $numberOfElements $algorithm
+        for count in {1..3}
+        do
+            runScript $numberOfElements $algorithm
+        done
     done
 done
