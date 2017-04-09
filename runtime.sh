@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Variables for setting timeout on test calls.
 timeoutOccuredExitCode=124
-timeoutLength=10
+timeoutLength=20
 timeoutInMilliseconds=$(($timeoutLength * 1000000))
 
+# Run the script with timeout.
 function runScript {
 
     timeout $timeoutLength ./sorting_benchmarks.out $1 data/input.txt data/output.txt $2
@@ -13,19 +15,15 @@ function runScript {
     fi
 }
 
+# Number of elements and algorithms arrays.
 elements=(10 100 1000 10000 1000000 5000000)
 algorithms=(is ms qs)
+
+# Loop over the elements and algorithms and run the tests for every combination.
 for numberOfElements in "${elements[@]}"
 do
     for algorithm in "${algorithms[@]}"
     do
         runScript $numberOfElements $algorithm
     done
-
-#	echo "Number of elements: $numberOfElements"
-#	for resultNodes in "${closest[@]}"
-#	do
-#		./a.out $numberOfElements $resultNodes $1 123 123 >> runtime.txt 2>&1
-#		echo " -- Number of result nodes: $resultNodes"
-#	done
 done
