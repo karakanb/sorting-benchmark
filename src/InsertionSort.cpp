@@ -1,7 +1,7 @@
 #include "InsertionSort.h"
 
-InsertionSort::InsertionSort(int arraySize, char *inputFile, char *outputFile) : SortingBase(arraySize, inputFile,
-                                                                                             outputFile) {}
+InsertionSort::InsertionSort(int arraySize, char *inputFile, char *outputFile, bool isVerbose)
+        : SortingBase(arraySize, inputFile, outputFile, isVerbose, INSERTION_SORT) {}
 
 void InsertionSort::sort() {
     initializeNumbersArray();

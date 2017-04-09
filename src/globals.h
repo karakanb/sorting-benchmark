@@ -19,4 +19,6 @@
 
 using namespace std;
 
+
+
 #endif //TEKKOM_GLOBALS_H

@@ -9,18 +9,23 @@
 
 class SortingBase {
 public:
-    SortingBase(int arraySize, char* inputFile, char* outputFile);
+    SortingBase(int arraySize, char *inputFile, char *outputFile, bool isVerbose, string algorithm);
 
 protected:
     int arraySize;
     int *numbers;
-    char* inputFile;
-    char* outputFile;
+    char *inputFile;
+    char *outputFile;
+    bool isVerbose;
     time_t runningTime;
+    string algorithm;
 
     void startTimer();
+
     void endTimer();
+
     void initializeNumbersArray();
+
     void writeNumbers();
 
 };

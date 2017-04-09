@@ -3,9 +3,10 @@
 
 #include "SortingBase.h"
 
-class InsertionSort : SortingBase{
+class InsertionSort : SortingBase {
 public:
-    InsertionSort(int arraySize, char *inputFile, char *outputFile);
+    InsertionSort(int arraySize, char *inputFile, char *outputFile, bool isVerbose);
+
     void sort();
 
 private:

@@ -6,11 +6,13 @@
 
 class MergeSort : public SortingBase {
 public:
-    MergeSort(int arraySize, char *inputFile, char *outputFile);
+    MergeSort(int arraySize, char *inputFile, char *outputFile, bool isVerbose);
+
     void sort();
 
 private:
     void sortWithMergeSort(int leftIndex, int rightIndex);
+
     void mergeArrays(int leftMostIndex, int rightMostIndex, int middle);
 };
 

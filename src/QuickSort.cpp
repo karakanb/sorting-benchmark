@@ -4,8 +4,8 @@
  * Default constructor.
  * @return
  */
-QuickSort::QuickSort(int arraySize, char *inputFile, char *outputFile)
-        : SortingBase(arraySize, inputFile, outputFile) {}
+QuickSort::QuickSort(int arraySize, char *inputFile, char *outputFile, bool isVerbose)
+        : SortingBase(arraySize, inputFile, outputFile, isVerbose, QUICK_SORT) {}
 
 /**
  * Quicksort wrapper for the numbers file.

@@ -76,8 +76,8 @@ void MergeSort::mergeArrays(int leftMostIndex, int rightMostIndex, int middle) {
     }
 }
 
-MergeSort::MergeSort(int arraySize, char *inputFile, char *outputFile) : SortingBase(arraySize, inputFile,
-                                                                                     outputFile) {}
+MergeSort::MergeSort(int arraySize, char *inputFile, char *outputFile, bool isVerbose)
+        : SortingBase(arraySize, inputFile, outputFile, isVerbose, MERGE_SORT) {}
 
 void MergeSort::sort() {
     initializeNumbersArray();

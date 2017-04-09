@@ -5,10 +5,12 @@
 #include "SortingBase.h"
 
 
-SortingBase::SortingBase(int arraySize, char *inputFile, char *outputFile) {
+SortingBase::SortingBase(int arraySize, char *inputFile, char *outputFile, bool isVerbose, string algorithm) {
     this->arraySize = arraySize;
     this->inputFile = inputFile;
     this->outputFile = outputFile;
+    this->isVerbose = isVerbose;
+    this->algorithm = algorithm;
 }
 
 /**
@@ -50,43 +52,52 @@ void SortingBase::writeNumbers() {
 
     int percentage = 0;
 
-
-    // Pretty print the algorithm runtime.
-    cout << endl;
-    cout << "--------------------------------------------------------------------------------" << endl << endl;
-    cout << "\t\t\t" << UNDERLINE_ON << "Running time of the algorithm" << UNDERLINE_OFF << endl;
-    cout << "\t\t    " << runningTime << " microseconds - "
-         << runningTime / 1000 << " milliseconds." << endl << endl;
-    cout << "--------------------------------------------------------------------------------" << endl << endl;
-
     // File writer.
     ofstream WriteToFile(outputFile);
 
-    cout << "********************************************************************************" << endl << endl;
-    cout << "\t\t\tWriting the sort:   %";
+    if (isVerbose) {
 
-    // Write all of the sort, and display a simple loading bar.
-    for (int i = 0; i < arraySize; i++) {
-        int number = numbers[i];
+        // Pretty print the algorithm runtime.
+        cout << endl;
+        cout << "--------------------------------------------------------------------------------" << endl << endl;
+        cout << "\t\t\t" << UNDERLINE_ON << "Running time of the algorithm" << UNDERLINE_OFF << endl;
+        cout << "\t\t    " << runningTime << " microseconds - "
+             << runningTime / 1000 << " milliseconds." << endl << endl;
+        cout << "--------------------------------------------------------------------------------" << endl << endl;
 
-        WriteToFile << number << endl;
+        cout << "--------------------------------------------------------------------------------" << endl << endl;
+        cout << "\t\t\tWriting the sort:   %";
 
-        // Pretty print the loading view.
-        percentage = 100 * i / arraySize;
-        cout << "\b";
-        if (percentage >= 10) {
-            cout << "\b\b" << percentage << "%";
-        } else {
-            cout << "\b" << percentage << "%";
+        // Write all of the sort, and display a simple loading bar.
+        for (int i = 0; i < arraySize; i++) {
+
+            WriteToFile << numbers[i] << endl;
+
+            // Pretty print the loading view.
+            percentage = 100 * i / arraySize;
+            cout << "\b";
+            if (percentage >= 10) {
+                cout << "\b\b" << percentage << "%";
+            } else {
+                cout << "\b" << percentage << "%";
+            }
         }
+        WriteToFile.close();
+
+        cout << "\b\b\b" << "100% - Success";
+        cout << endl << "\tThe sort have successfully been sorted and written into " << this->outputFile;
+        cout << endl << endl;
+        cout << "--------------------------------------------------------------------------------" << endl << endl;
+    } else {
+        // Write sorted numbers.
+        for (int i = 0; i < arraySize; i++) {
+            WriteToFile << numbers[i] << endl;
+        }
+        WriteToFile.close();
+
+        cout << algorithm << "," << arraySize << "," << runningTime << endl;
+
     }
-
-    WriteToFile.close();
-
-    cout << "\b\b\b" << "100% - Success";
-    cout << endl << "\tThe sort have successfully been sorted and written into " << this->outputFile;
-    cout << endl << endl;
-    cout << "********************************************************************************" << endl << endl;
 
 }
 
