@@ -46,7 +46,7 @@ void SortingBase::initializeNumbersArray() {
 
 }
 
-void SortingBase::writeNumbers(int *sortedNumbers) {
+void SortingBase::writeNumbers() {
 
     int percentage = 0;
 
@@ -67,7 +67,7 @@ void SortingBase::writeNumbers(int *sortedNumbers) {
 
     // Write all of the sort, and display a simple loading bar.
     for (int i = 0; i < arraySize; i++) {
-        int number = sortedNumbers[i];
+        int number = numbers[i];
 
         WriteToFile << number << endl;
 

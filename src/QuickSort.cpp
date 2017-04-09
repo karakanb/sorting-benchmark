@@ -24,7 +24,7 @@ void QuickSort::sort() {
     endTimer();
 
     // Write the sorted sort into the file.
-    writeNumbers(numbers);
+    writeNumbers();
 }
 
 /**

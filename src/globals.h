@@ -7,6 +7,10 @@
 #define UNDERLINE_ON "\33[4m"
 #define UNDERLINE_OFF "\33[0m"
 
+#define INSERTION_SORT "is"
+#define MERGE_SORT "ms"
+#define QUICK_SORT "qs"
+
 #include <iostream>
 #include <fstream>
 #include <vector>

@@ -84,6 +84,6 @@ void MergeSort::sort() {
     startTimer();
     sortWithMergeSort(0, arraySize - 1);
     endTimer();
-    writeNumbers(this->numbers);
+    writeNumbers();
 }
 

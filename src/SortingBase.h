@@ -21,7 +21,7 @@ protected:
     void startTimer();
     void endTimer();
     void initializeNumbersArray();
-    void writeNumbers(int *sortedNumbers);
+    void writeNumbers();
 
 };
 
