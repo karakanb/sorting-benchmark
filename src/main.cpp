@@ -31,11 +31,20 @@ int main(int argc, char *argv[]) {
             InsertionSort is(arraySize, inputFile, outputFile, isVerbose);
             is.sort();
         }
+    } else {
+        cerr << "Error occured." << endl;
+        return -1;
     }
 
     return 0;
 }
 
+/**
+ * Parse the input arguments and check if the '-v' option is set.
+ * @param argc
+ * @param argv
+ * @return
+ */
 bool getVerboseOption(int argc, char *argv[]) {
     bool isVerbose = false;
     int option = 0;
@@ -51,6 +60,11 @@ bool getVerboseOption(int argc, char *argv[]) {
     return isVerbose;
 }
 
+/**
+ * Convert the given string to lowercase.
+ * @param algorithm
+ * @return
+ */
 std::string toLower(string algorithm) {
     std::transform(algorithm.begin(), algorithm.end(), algorithm.begin(), ::tolower);
     return algorithm;
