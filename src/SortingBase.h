@@ -28,6 +28,8 @@ protected:
 
     void writeNumbers();
 
+    string getAlgorithmName();
+
 };
 
 

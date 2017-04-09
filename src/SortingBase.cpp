@@ -60,13 +60,16 @@ void SortingBase::writeNumbers() {
         // Pretty print the algorithm runtime.
         cout << endl;
         cout << "--------------------------------------------------------------------------------" << endl << endl;
-        cout << "\t\t\t" << UNDERLINE_ON << "Running time of the algorithm" << UNDERLINE_OFF << endl;
+        cout << "\t\t" << UNDERLINE_ON
+             << "Running time of the " << getAlgorithmName()
+             << " with " << arraySize << " inputs "
+             << UNDERLINE_OFF << endl;
         cout << "\t\t    " << runningTime << " microseconds - "
              << runningTime / 1000 << " milliseconds." << endl << endl;
         cout << "--------------------------------------------------------------------------------" << endl << endl;
 
         cout << "--------------------------------------------------------------------------------" << endl << endl;
-        cout << "\t\t\tWriting the sort:   %";
+        cout << "\t\t\tWriting the result:   %";
 
         // Write all of the sort, and display a simple loading bar.
         for (int i = 0; i < arraySize; i++) {
@@ -85,7 +88,7 @@ void SortingBase::writeNumbers() {
         WriteToFile.close();
 
         cout << "\b\b\b" << "100% - Success";
-        cout << endl << "\tThe sort have successfully been sorted and written into " << this->outputFile;
+        cout << endl << "\tThe numbers have successfully been sorted and written into " << this->outputFile;
         cout << endl << endl;
         cout << "--------------------------------------------------------------------------------" << endl << endl;
     } else {
@@ -107,4 +110,14 @@ void SortingBase::startTimer() {
 
 void SortingBase::endTimer() {
     runningTime = (clock() - runningTime) / (CLOCKS_PER_SEC / 1000000);
+}
+
+string SortingBase::getAlgorithmName() {
+    if(this->algorithm == QUICK_SORT) {
+        return "Quicksort";
+    } else if(this->algorithm == MERGE_SORT) {
+        return "Merge Sort";
+    } else {
+        return "Insertion Sort";
+    }
 }

@@ -1,4 +1,5 @@
 # Benchmarking Sorting Algorithms
+![OutputSS](http://i64.tinypic.com/xknbz4.png)
 
 This project aims to provide a basic view over the performances of the most well-knowns sorting algorithms: insertion sort, merge sort and quicksort.  The program is written in C++ with the most basic data structures, no STL data structure is used. Every algorithm is implemented using the plain old arrays. 
    
