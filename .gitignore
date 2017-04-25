@@ -1,4 +1,5 @@
 data/output.txt
+output/*
 
 .idea/
 CMakeCache.txt

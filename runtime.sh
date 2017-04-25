@@ -5,6 +5,11 @@ timeoutOccuredExitCode=124
 timeoutLength=600
 timeoutInMilliseconds=$(($timeoutLength * 1000000))
 
+mkdir -p outputs
+fileName=outputs/result
+currentTime=$(date "+%s")
+outputFileName=$fileName-$currentTime.data
+
 # Run the script with timeout.
 function runScript {
 
@@ -16,7 +21,7 @@ function runScript {
 }
 
 # Number of elements and algorithms arrays.
-elements=(10 100 1000 10000 1000000 5000000)
+elements=(10 100)
 algorithms=(is ms qs)
 
 # Loop over the elements and algorithms and run the tests for every combination.
@@ -26,7 +31,7 @@ do
     do
         for count in {1..3}
         do
-            runScript $numberOfElements $algorithm
+            runScript $numberOfElements $algorithm >> $outputFileName
         done
     done
 done
