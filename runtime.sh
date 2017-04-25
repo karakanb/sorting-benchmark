@@ -2,7 +2,7 @@
 
 # Variables for setting timeout on test calls.
 timeoutOccuredExitCode=124
-timeoutLength=20
+timeoutLength=600
 timeoutInMilliseconds=$(($timeoutLength * 1000000))
 
 # Run the script with timeout.
@@ -11,7 +11,7 @@ function runScript {
     timeout $timeoutLength ./sorting_benchmarks.out $1 data/input.txt data/output.txt $2
     if [ $? -eq $timeoutOccuredExitCode ]
     then
-        echo $2,$1,$timeoutInMilliseconds
+        echo $2,$1,"TIMEOUT"
     fi
 }
 
