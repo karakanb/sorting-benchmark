@@ -30,7 +30,7 @@ In this command, the arguments are:
 - `-v`: Optional flag in order to denote the verbose output. If not given, a simple line will be outputted, displaying the algorithm, input size and running time in microseconds. E.g. `qs,1000000,221119`.
 
 ## Test Script
-There is a bash script for testing the running times in the project root, called `runtime.sh`, which can be run as `./runtime.sh`. The script will output the running time results for the configurations it ran, in the aforementioned CSV format. It runs the program 3 times for the same configuration in order to be able to obtain an average result for each of the configurations.
+There is a bash script for testing the running times in the project root, called `runtime.sh`, which can be run as `./runtime.sh`. The script will output the running time results for the configurations it ran, in the aforementioned CSV format to a file under the `outputs` folder with `/outputs/result-timestamp.data` format. It runs the program 3 times for the same configuration in order to be able to obtain an average result for each of the configurations.
 
 The script has a timeout value as a hardcoded variable, which stops executing the program if it takes long time and prints the timeout value in *microseconds* as the running time. For now, the timeout is set to 20 seconds, which determines the bounds for insertion sort especially. An example output for test script is as follows:
 ```bash
