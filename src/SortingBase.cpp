@@ -92,12 +92,15 @@ void SortingBase::writeNumbers() {
         cout << endl << endl;
         cout << "--------------------------------------------------------------------------------" << endl << endl;
     } else {
+
+        // Disabled file output operation in order to increase test speed.
+        /*
         // Write sorted numbers.
         for (int i = 0; i < arraySize; i++) {
             WriteToFile << numbers[i] << endl;
         }
         WriteToFile.close();
-
+        */
         cout << algorithm << "," << arraySize << "," << runningTime << endl;
 
     }
