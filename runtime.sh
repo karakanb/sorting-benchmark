@@ -2,14 +2,13 @@
 
 # Variables for setting timeout on test calls.
 timeoutOccuredExitCode=124
-timeoutLength=1
-timeoutInMilliseconds=$(($timeoutLength * 1000000))
+timeoutLength=100
 
 # Construct the output file path.
 mkdir -p outputs
 fileName=outputs/result
 currentTime=$(date "+%s")
-outputFileName=$fileName-$currentTime.data
+outputFileName=$fileName-$currentTime.csv
 
 # Run the script with timeout.
 function runScript {
